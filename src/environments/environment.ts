@@ -5,10 +5,10 @@ export const environment = {
     host: '127.0.0.1',
     port: '3000',
     endpoints: {
-      musiqueAleatoire: '/api/musics/random',
-      toutesLesMusiques: '/api/musics',
-      uneMusique: '/api/musics/:id',
-      filterByTitle: '/api/musics/title/:title'
+      musiqueAleatoire: '/musics/random',
+      toutesLesMusiques: '/musics',
+      uneMusique: '/musics/:id',
+      filterByTitle: '/musics/title/:title'
     }
   }
 };
