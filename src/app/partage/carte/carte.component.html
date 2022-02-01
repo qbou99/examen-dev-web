@@ -1,15 +1,15 @@
 <mat-card class="carteCustom">
   <mat-card-header>
-    <img *ngIf="employe?.photo" mat-card-avatar [src]="employe?.photo" alt="Avatar de l'employé"/>
-    <mat-card-title> <span badgeChef [employe]="employe!"></span> {{employe?.nom | uppercase}} {{employe?.prenom}} </mat-card-title>
+    <img *ngIf="employe?.picture" mat-card-avatar [src]="employe?.picture" alt="Avatar de l'employé"/>
+    <mat-card-title> <span badgeChef [employe]="employe!"></span> {{employe?.title}} </mat-card-title>
     <mat-card-subtitle>
       <mat-card-content>
         <mat-chip-list>
-          <mat-chip color="primary" *ngFor="let titre of employe?.titres">
+          <mat-chip color="primary" *ngFor="let style of employe?.style">
             <mat-icon class="small">
-              work_outline
+              music
             </mat-icon>
-            {{titre}}
+            {{style}}
           </mat-chip>
         </mat-chip-list>
       </mat-card-content>
@@ -18,16 +18,19 @@
   <mat-card-content>
     <mat-card-subtitle class="info">
       <mat-icon>email</mat-icon>
-      <a
-        href="mailto:{{employe?.email}}"
-        title="Send an email to"
-        class="truncate"
-      >{{employe?.email}}</a
-      >
+      <p>{{employe?.album}}</p>
     </mat-card-subtitle>
     <mat-card-subtitle class="info">
       <mat-icon>phone</mat-icon>
-      <a href="tel:{{employe?.telephone}}" title="Call">{{employe?.telephone}}</a>
+      <p>{{employe?.artist}}</p>
+    </mat-card-subtitle>
+    <mat-card-subtitle class="info">
+      <mat-icon>phone</mat-icon>
+      <p>{{employe?.duration}}</p>
+    </mat-card-subtitle>
+    <mat-card-subtitle class="info">
+      <mat-icon>phone</mat-icon>
+      <p>{{employe?.date}}</p>
     </mat-card-subtitle>
   </mat-card-content>
 

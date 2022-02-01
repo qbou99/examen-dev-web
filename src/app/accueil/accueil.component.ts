@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Person} from "../model/Person";
+import {Music} from "../model/Music";
 import {ListPersonnelService} from "../partage/service/list-personnel.service";
 
 @Component({
@@ -9,7 +9,7 @@ import {ListPersonnelService} from "../partage/service/list-personnel.service";
 })
 export class AccueilComponent {
 
-  employe: Person = {};
+  employe: Music = {};
 
 
   constructor(private readonly listPersonnelService:ListPersonnelService) {
@@ -26,7 +26,7 @@ export class AccueilComponent {
     });
   }
 
-  delete(person: Person){
+  delete(person: Music){
     this.listPersonnelService.delete(person.id!).subscribe(() => {
       this.random();
     });

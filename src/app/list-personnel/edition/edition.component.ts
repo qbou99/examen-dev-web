@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {ListPersonnelService} from "../../partage/service/list-personnel.service";
-import {Person} from "../../model/Person";
+import {Music} from "../../model/Music";
 
 @Component({
   selector: 'app-edition',
@@ -10,7 +10,7 @@ import {Person} from "../../model/Person";
 })
 export class EditionComponent implements OnInit {
 
-  employe: Person;
+  employe: Music;
 
   /**
    * Component constructor

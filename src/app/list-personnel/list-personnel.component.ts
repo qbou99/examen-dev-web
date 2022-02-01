@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ListPersonnelService} from "../partage/service/list-personnel.service";
-import {Person} from "../model/Person";
+import {Music} from "../model/Music";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {mergeMap} from "rxjs";
 import {AjoutPopupComponent} from "./ajout-popup/ajout-popup.component";
@@ -12,7 +12,7 @@ import {AjoutPopupComponent} from "./ajout-popup/ajout-popup.component";
 })
 export class ListPersonnelComponent implements OnInit {
 
-  personnel: Person[] = [];
+  personnel: Music[] = [];
   view:string = "card";
   dialogStatus: string = "inactive";
   private addDialog: MatDialogRef<AjoutPopupComponent> | any;
@@ -27,7 +27,7 @@ export class ListPersonnelComponent implements OnInit {
     });
   }
 
-  delete(person: Person) {
+  delete(person: Music) {
     this.listPersonnelService.delete(person.id!).subscribe(personnel => {
       this.personnel = personnel;
     });
@@ -42,7 +42,7 @@ export class ListPersonnelComponent implements OnInit {
     }
   }
 
-  add(person: Person) {
+  add(person: Music) {
     this.listPersonnelService
       .create(person)
       .pipe(mergeMap(() => this.listPersonnelService.fetch()))
@@ -52,7 +52,7 @@ export class ListPersonnelComponent implements OnInit {
       });
   }
 
-  update(person: Person) {
+  update(person: Music) {
     this.listPersonnelService
       .update(person)
       .pipe(mergeMap(() => this.listPersonnelService.fetch()))

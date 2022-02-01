@@ -2,7 +2,7 @@ import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} f
 import {MatChipInputEvent} from "@angular/material/chips";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Person} from "../../model/Person";
+import {Music} from "../../model/Music";
 
 @Component({
   selector: 'formulaire',
@@ -11,7 +11,7 @@ import {Person} from "../../model/Person";
 })
 export class FormulaireComponent implements OnInit {
   form: FormGroup;
-  @Input() employeModel: Person;
+  @Input() employeModel: Music;
   @ViewChild("fileInput") fileInput!: ElementRef;
 
   @Output('cancel') cancelEvent$: EventEmitter<any>;
@@ -24,7 +24,7 @@ export class FormulaireComponent implements OnInit {
     this.cancelEvent$ = new EventEmitter();
     this.form = FormulaireComponent.buildForm();
     this.employeModel = {
-      titres: []
+      style: []
     };
   }
 
@@ -32,13 +32,13 @@ export class FormulaireComponent implements OnInit {
     debugger;
     this.form.patchValue({
       id: this.employeModel.id,
-      nom: this.employeModel.nom,
-      prenom: this.employeModel.prenom,
-      email: this.employeModel.email,
-      titres: this.employeModel.titres || [],
-      sexe: this.employeModel.sexe,
-      photo: this.employeModel.photo,
-      telephone: this.employeModel.telephone
+      title: this.employeModel.title,
+      description: this.employeModel.description,
+      album: this.employeModel.album,
+      style: this.employeModel.style || [],
+      artist: this.employeModel.artist,
+      duration: this.employeModel.duration,
+      date: this.employeModel.date
     });
   }
 
@@ -46,8 +46,8 @@ export class FormulaireComponent implements OnInit {
     this.cancelEvent$.emit();
   }
 
-  submit(employe: Person) { //Formulaire
-    employe.photo = this.employeModel.photo;
+  submit(employe: Music) { //Formulaire
+    employe.picture = this.employeModel.picture;
     this.submitEvent$.emit(employe);
   }
 
@@ -55,14 +55,14 @@ export class FormulaireComponent implements OnInit {
   addChipset(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
     if (value) {
-      this.employeModel.titres!.push(value);
+      this.employeModel.style!.push(value);
     }
     event.chipInput!.clear();
   }
 
   removeChipset(titre: any): void {
-    const index = this.employeModel.titres!.indexOf(titre);
-    this.employeModel.titres!.splice(index, 1);
+    const index = this.employeModel.style!.indexOf(titre);
+    this.employeModel.style!.splice(index, 1);
   }
 
   onFileSelected(event:Event | null) {
@@ -73,7 +73,7 @@ export class FormulaireComponent implements OnInit {
         let reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = (_event) => {
-          this.employeModel.photo = reader.result;
+          this.employeModel.picture = reader.result;
         }
     }
   }

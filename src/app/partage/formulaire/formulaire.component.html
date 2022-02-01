@@ -52,7 +52,7 @@
         <mat-form-field class="chip-list" >
           <mat-label><mat-icon>work</mat-icon> Fonctions :</mat-label>
           <mat-chip-list #chipList aria-label="Intitulés des fonctions de l'employés">
-            <mat-chip *ngFor="let titre of employeModel.titres" (removed)="removeChipset(titre)" >
+            <mat-chip *ngFor="let titre of employeModel.style" (removed)="removeChipset(titre)" >
               {{titre}}
               <button matChipRemove>
                 <mat-icon>cancel</mat-icon>
@@ -67,15 +67,15 @@
       </p>
 
       <input #fileInput type="file" (change)="onFileSelected($event)"  name="photo" style="display: none;" accept=".png,.jpg" />
-      <div *ngIf="employeModel.photo" >
-        <img width="100" src="{{employeModel.photo}}" alt="Photo de l'employé" /> <br>
-        <button mat-flat-button color="warn" (click)="employeModel.photo = null;">
+      <div *ngIf="employeModel.picture" >
+        <img width="100" src="{{employeModel.picture}}" alt="Photo de l'employé" /> <br>
+        <button mat-flat-button color="warn" (click)="employeModel.picture = null;">
           <mat-icon>
             cancel
           </mat-icon>
         </button>
       </div>
-      <div class="file-upload" *ngIf="!employeModel.photo">
+      <div class="file-upload" *ngIf="!employeModel.picture">
         <button type="button" (click)="fileInput.click()" mat-fab>
           <mat-icon>
             image

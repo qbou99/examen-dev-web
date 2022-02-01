@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Person} from "../../model/Person";
+import {Music} from "../../model/Music";
 
 @Component({
   selector: 'carte',
@@ -8,7 +8,7 @@ import {Person} from "../../model/Person";
 })
 export class CarteComponent {
 
-  @Input() employe: Person | undefined;
+  @Input() employe: Music | undefined;
 
   @Output('personDelete') delete$: EventEmitter<any> = new EventEmitter();
 

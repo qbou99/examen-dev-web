@@ -1,11 +1,11 @@
 import {Directive, ElementRef, Input, OnChanges, OnInit, Renderer2, SimpleChanges} from '@angular/core';
-import {Person} from "../../model/Person";
+import {Music} from "../../model/Music";
 
 @Directive({
   selector: '[badgeChef]'
 })
 export class BadgeChefDirective implements OnInit, OnChanges{
-  @Input() employe: Person = {};
+  @Input() employe: Music = {};
 
   constructor(private elementRef:ElementRef, private renderer:Renderer2) {
     debugger;
@@ -13,7 +13,7 @@ export class BadgeChefDirective implements OnInit, OnChanges{
 
   ngOnInit(): void {
     let isChef:boolean = false;
-    this.employe?.titres?.forEach((titre) => {
+    this.employe?.style?.forEach((titre) => {
       if(titre.includes("chef")){
         isChef = true;
         this.renderer.setProperty(
