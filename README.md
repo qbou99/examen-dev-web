@@ -1,4 +1,4 @@
-Quentin BOUCKSOM
+Quentin BOUCKSOM, TP réalisé seul
 
 # ⬇ 1. Installation
 1. Clonez le projet avec la commande `git clone https://github.com/MarcPetitdemange/cours-dev-web-angular.git`
