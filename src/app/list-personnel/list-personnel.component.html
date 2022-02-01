@@ -1,15 +1,15 @@
 <section [ngSwitch]="view">
   <section *ngSwitchCase="'card'">
-    <carte [employe]="employe" (personDelete)="delete($event)" (personUpdate)="update($event)" *ngFor="let employe of personnel" ></carte>
+    <carte [music]="music" (personDelete)="delete($event)" (personUpdate)="update($event)" *ngFor="let music of personnel" ></carte>
   </section>
 
   <section *ngSwitchCase="'list'">
     <mat-list>
-      <mat-list-item *ngFor="let employe of personnel" class="mat-whiteframe-2dp mat-card">
-        <img mat-list-avatar src="{{ employe.picture }}" alt="Avatar de l'employé"/>
-        <h3 mat-line> <span badgeChef [employe]="employe!"></span> {{ employe.title }} </h3>
+      <mat-list-item *ngFor="let music of personnel" class="mat-whiteframe-2dp mat-card">
+        <img mat-list-avatar src="{{ music.picture }}" alt="Avatar de l'employé"/>
+        <h3 mat-line> <span badgeChef [music]="music!"></span> {{ music.title }} </h3>
         <p mat-line>
-          <span> {{ employe.artist }} </span> — <span>{{ employe.album }} </span>
+          <span> {{ music.artist }} </span> — <span>{{ music.album }} </span>
         </p>
       </mat-list-item>
     </mat-list>

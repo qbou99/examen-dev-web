@@ -9,7 +9,7 @@ import {ListPersonnelService} from "../partage/service/list-personnel.service";
 })
 export class AccueilComponent {
 
-  employe: Music = {};
+  music: Music = {};
 
 
   constructor(private readonly listPersonnelService:ListPersonnelService) {
@@ -21,8 +21,8 @@ export class AccueilComponent {
    * Returns random people
    */
   random() {
-    this.listPersonnelService.fetchRandom().subscribe(employe => {
-      this.employe = employe;
+    this.listPersonnelService.fetchRandom().subscribe(music => {
+      this.music = music;
     });
   }
 

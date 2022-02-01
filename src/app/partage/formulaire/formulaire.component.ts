@@ -11,7 +11,7 @@ import {Music} from "../../model/Music";
 })
 export class FormulaireComponent implements OnInit {
   form: FormGroup;
-  @Input() employeModel: Music;
+  @Input() musicModel: Music;
   @ViewChild("fileInput") fileInput!: ElementRef;
 
   @Output('cancel') cancelEvent$: EventEmitter<any>;
@@ -23,7 +23,7 @@ export class FormulaireComponent implements OnInit {
     this.submitEvent$ = new EventEmitter();
     this.cancelEvent$ = new EventEmitter();
     this.form = FormulaireComponent.buildForm();
-    this.employeModel = {
+    this.musicModel = {
       styles: []
     };
   }
@@ -31,14 +31,14 @@ export class FormulaireComponent implements OnInit {
   ngOnInit() {
     debugger;
     this.form.patchValue({
-      id: this.employeModel.id,
-      title: this.employeModel.title,
-      description: this.employeModel.description,
-      album: this.employeModel.album,
-      styles: this.employeModel.styles || [],
-      artist: this.employeModel.artist,
-      duration: this.employeModel.duration,
-      date: this.employeModel.date
+      id: this.musicModel.id,
+      title: this.musicModel.title,
+      description: this.musicModel.description,
+      album: this.musicModel.album,
+      styles: this.musicModel.styles || [],
+      artist: this.musicModel.artist,
+      duration: this.musicModel.duration,
+      date: this.musicModel.date
     });
   }
 
@@ -46,23 +46,23 @@ export class FormulaireComponent implements OnInit {
     this.cancelEvent$.emit();
   }
 
-  submit(employe: Music) { //Formulaire
-    employe.picture = this.employeModel.picture;
-    this.submitEvent$.emit(employe);
+  submit(music: Music) { //Formulaire
+    music.picture = this.musicModel.picture;
+    this.submitEvent$.emit(music);
   }
 
 
   addChipset(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
     if (value) {
-      this.employeModel.styles!.push(value);
+      this.musicModel.styles!.push(value);
     }
     event.chipInput!.clear();
   }
 
   removeChipset(titre: any): void {
-    const index = this.employeModel.styles!.indexOf(titre);
-    this.employeModel.styles!.splice(index, 1);
+    const index = this.musicModel.styles!.indexOf(titre);
+    this.musicModel.styles!.splice(index, 1);
   }
 
   onFileSelected(event:Event | null) {
@@ -73,7 +73,7 @@ export class FormulaireComponent implements OnInit {
         let reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = (_event) => {
-          this.employeModel.picture = reader.result;
+          this.musicModel.picture = reader.result;
         }
     }
   }

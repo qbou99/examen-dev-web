@@ -10,7 +10,7 @@ import {Music} from "../../model/Music";
 })
 export class EditionComponent implements OnInit {
 
-  employe: Music;
+  music: Music;
 
   /**
    * Component constructor
@@ -20,18 +20,18 @@ export class EditionComponent implements OnInit {
     private readonly router: Router,
     private readonly listPersonnelService: ListPersonnelService
   ) {
-    this.employe = {};
+    this.music = {};
   }
 
   /**
    * OnInit implementation
    */
   ngOnInit() {
-    this.route.data.subscribe(( employe: any) => (this.employe = employe.employe));
+    this.route.data.subscribe(( music: any) => (this.music = music.music));
   }
 
-  submit(employe: any) {
-    this.listPersonnelService.update(employe).subscribe(() => {
+  submit(music: any) {
+    this.listPersonnelService.update(music).subscribe(() => {
       this.router.navigate(['/listPersonnel']).then(r => null);
     });
   }

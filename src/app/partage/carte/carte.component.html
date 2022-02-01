@@ -1,11 +1,11 @@
 <mat-card class="carteCustom">
   <mat-card-header>
-    <img *ngIf="employe?.picture" mat-card-avatar [src]="employe?.picture" alt="Avatar de l'employé"/>
-    <mat-card-title> <span badgeChef [employe]="employe!"></span> {{employe?.title}} </mat-card-title>
+    <img *ngIf="music?.picture" mat-card-avatar [src]="music?.picture" alt="Avatar de l'employé"/>
+    <mat-card-title> <span badgeChef [music]="music!"></span> {{music?.title}} </mat-card-title>
     <mat-card-subtitle>
       <mat-card-content>
         <mat-chip-list>
-          <mat-chip color="primary" *ngFor="let style of employe?.styles">
+          <mat-chip color="primary" *ngFor="let style of music?.styles">
             <mat-icon class="small">
               music_note
             </mat-icon>
@@ -18,24 +18,24 @@
   <mat-card-content>
     <mat-card-subtitle class="info">
       <mat-icon>library_music</mat-icon>
-      <p>{{employe?.album}}</p>
+      <p>{{music?.album}}</p>
     </mat-card-subtitle>
     <mat-card-subtitle class="info">
       <mat-icon>mic</mat-icon>
-      <p>{{employe?.artist}}</p>
+      <p>{{music?.artist}}</p>
     </mat-card-subtitle>
     <mat-card-subtitle class="info">
       <mat-icon>timer</mat-icon>
-      <p>{{employe?.duration}}</p>
+      <p>{{music?.duration}}</p>
     </mat-card-subtitle>
     <mat-card-subtitle class="info">
       <mat-icon>calendar_today</mat-icon>
-      <p>{{parseDate(employe?.date)}}</p>
+      <p>{{parseDate(music?.date)}}</p>
     </mat-card-subtitle>
   </mat-card-content>
 
   <mat-card-actions align="end">
-    <button mat-mini-fab aria-label="Editer" color="accent" [routerLink]="['/edit', employe?.id]">
+    <button mat-mini-fab aria-label="Editer" color="accent" [routerLink]="['/edit', music?.id]">
       <mat-icon>edit</mat-icon>
     </button>
     <button mat-mini-fab aria-label="Supprimer" color="warn" (click)="delete()">

@@ -7,15 +7,15 @@ import {Music} from "../../model/Music";
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeDetailResolverResolver implements Resolve<Music> {
+export class MusicDetailResolverResolver implements Resolve<Music> {
 
   constructor(private readonly peopleService: ListPersonnelService) {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Music> {
-    const employeId: string | null = route.paramMap.get('id');
-    if(employeId != null){
-      return this.peopleService.fetchOne(employeId);
+    const musicId: string | null = route.paramMap.get('id');
+    if(musicId != null){
+      return this.peopleService.fetchOne(musicId);
     }
     else
       return new Observable<Music>();

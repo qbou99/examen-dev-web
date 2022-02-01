@@ -5,7 +5,7 @@ import {Music} from "../../model/Music";
   selector: '[badgeChef]'
 })
 export class BadgeChefDirective implements OnInit, OnChanges{
-  @Input() employe: Music = {};
+  @Input() music: Music = {};
 
   constructor(private elementRef:ElementRef, private renderer:Renderer2) {
     debugger;

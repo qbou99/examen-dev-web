@@ -8,7 +8,7 @@ import {Music} from "../../model/Music";
 })
 export class CarteComponent {
 
-  @Input() employe: Music | undefined;
+  @Input() music: Music | undefined;
 
   @Output('personDelete') delete$: EventEmitter<any> = new EventEmitter();
 
@@ -20,11 +20,11 @@ export class CarteComponent {
   }
 
   delete() {
-    this.delete$.emit(this.employe);
+    this.delete$.emit(this.music);
   }
 
   update() {
-    this.update$.emit(this.employe);
+    this.update$.emit(this.music);
   }
 
   parseDate(date:string|undefined) {

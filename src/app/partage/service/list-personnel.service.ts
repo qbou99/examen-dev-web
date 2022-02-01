@@ -10,7 +10,7 @@ import {Music} from "../../model/Music";
 })
 export class ListPersonnelService {
 
-  private employees = new BehaviorSubject<number>(-1);
+  private musices = new BehaviorSubject<number>(-1);
 
   private urlServer:any = {};
 
@@ -31,12 +31,12 @@ export class ListPersonnelService {
 
   }
 
-  get employees$(): Observable<number> {
-    return this.employees.asObservable();
+  get musices$(): Observable<number> {
+    return this.musices.asObservable();
   }
 
-  updatedEmployeeList(data: number){
-    this.employees.next(data);
+  updatedMusiceList(data: number){
+    this.musices.next(data);
   }
 
   fetch(): Observable<Music[]> {
@@ -55,15 +55,15 @@ export class ListPersonnelService {
     return this.http.delete(this.urlServer.uneMusique.replace(':id', id));
   }
 
-  create(employe: Music): Observable<Music> {
-    return this.http.post<Music>(this.urlServer.toutesLesMusiques, employe);
+  create(music: Music): Observable<Music> {
+    return this.http.post<Music>(this.urlServer.toutesLesMusiques, music);
   }
 
   fetchOne(id: string): Observable<Music> {
     return this.http.get<Music>(this.urlServer.uneMusique.replace(':id', id));
   }
 
-  update(employe: Music): Observable<Music> {
-    return this.http.put<Music>(this.urlServer.uneMusique.replace(':id', employe.id), employe);
+  update(music: Music): Observable<Music> {
+    return this.http.put<Music>(this.urlServer.uneMusique.replace(':id', music.id), music);
   }
 }
