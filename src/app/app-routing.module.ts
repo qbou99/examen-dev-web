@@ -6,9 +6,9 @@ import {EditionComponent} from "./list-personnel/edition/edition.component";
 import {EmployeDetailResolverResolver} from "./partage/employe-detail-resolver/employe-detail-resolver.resolver";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'accueil', pathMatch: 'full' },
-  {path:'accueil', component: AccueilComponent},
-  {path:'listPersonnel', component: ListPersonnelComponent},
+  { path: '', redirectTo: 'listMusics', pathMatch: 'full' },
+  {path:'random', component: AccueilComponent},
+  {path:'listMusics', component: ListPersonnelComponent},
   { path: 'edit/:id', component: EditionComponent, resolve: { employe: EmployeDetailResolverResolver } }
 ];
 @NgModule({

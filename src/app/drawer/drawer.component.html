@@ -1,13 +1,13 @@
 <mat-drawer-container class="example-container">
   <mat-drawer #drawer mode="side">
     <mat-nav-list>
-      <mat-list-item [routerLink]="['/accueil']">
-        <span class="full-width">{{ 'drawer.accueil' | translate }}</span>
-        <mat-icon mat-list-icon>home</mat-icon>
-      </mat-list-item>
-      <mat-list-item [routerLink]="['/listPersonnel']">
-        <span class="full-width">{{ 'drawer.listPersonnel' | translate }}</span>
+      <mat-list-item [routerLink]="['/listMusics']">
+        <span class="full-width">{{"Musics list"}}</span>
         <mat-icon mat-list-icon>list_alt</mat-icon>
+      </mat-list-item>
+      <mat-list-item [routerLink]="['/random']">
+        <span class="full-width">{{"Random"}}</span>
+        <mat-icon mat-list-icon>loop</mat-icon>
       </mat-list-item>
     </mat-nav-list>
   </mat-drawer>
