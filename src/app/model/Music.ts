@@ -6,6 +6,6 @@ export interface Music {
   artist?: string;
   duration?: string;
   date?: string;
-  style?: string[] | null;
+  styles?: string[] | null;
   picture?: string | ArrayBuffer | null;
 }

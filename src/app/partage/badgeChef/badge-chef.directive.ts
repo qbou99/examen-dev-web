@@ -12,19 +12,6 @@ export class BadgeChefDirective implements OnInit, OnChanges{
   }
 
   ngOnInit(): void {
-    let isChef:boolean = false;
-    this.employe?.style?.forEach((titre) => {
-      if(titre.includes("chef")){
-        isChef = true;
-        this.renderer.setProperty(
-          this.elementRef.nativeElement,
-          'innerHTML',
-          '<em class="material-icons">supervisor_account</em>'
-        );
-        return;
-      }
-    })
-    if(!isChef)
     this.renderer.setProperty(this.elementRef.nativeElement,'innerHTML','');
   }
 

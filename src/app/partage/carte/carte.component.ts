@@ -26,4 +26,8 @@ export class CarteComponent {
   update() {
     this.update$.emit(this.employe);
   }
+
+  parseDate(date:string|undefined) {
+    return new Date(Date.parse(date || '')).toDateString();
+  }
 }

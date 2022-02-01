@@ -24,7 +24,7 @@ export class FormulaireComponent implements OnInit {
     this.cancelEvent$ = new EventEmitter();
     this.form = FormulaireComponent.buildForm();
     this.employeModel = {
-      style: []
+      styles: []
     };
   }
 
@@ -35,7 +35,7 @@ export class FormulaireComponent implements OnInit {
       title: this.employeModel.title,
       description: this.employeModel.description,
       album: this.employeModel.album,
-      style: this.employeModel.style || [],
+      styles: this.employeModel.styles || [],
       artist: this.employeModel.artist,
       duration: this.employeModel.duration,
       date: this.employeModel.date
@@ -55,14 +55,14 @@ export class FormulaireComponent implements OnInit {
   addChipset(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
     if (value) {
-      this.employeModel.style!.push(value);
+      this.employeModel.styles!.push(value);
     }
     event.chipInput!.clear();
   }
 
   removeChipset(titre: any): void {
-    const index = this.employeModel.style!.indexOf(titre);
-    this.employeModel.style!.splice(index, 1);
+    const index = this.employeModel.styles!.indexOf(titre);
+    this.employeModel.styles!.splice(index, 1);
   }
 
   onFileSelected(event:Event | null) {

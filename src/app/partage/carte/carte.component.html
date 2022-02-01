@@ -5,9 +5,9 @@
     <mat-card-subtitle>
       <mat-card-content>
         <mat-chip-list>
-          <mat-chip color="primary" *ngFor="let style of employe?.style">
+          <mat-chip color="primary" *ngFor="let style of employe?.styles">
             <mat-icon class="small">
-              music
+              music_note
             </mat-icon>
             {{style}}
           </mat-chip>
@@ -17,20 +17,20 @@
   </mat-card-header>
   <mat-card-content>
     <mat-card-subtitle class="info">
-      <mat-icon>email</mat-icon>
+      <mat-icon>library_music</mat-icon>
       <p>{{employe?.album}}</p>
     </mat-card-subtitle>
     <mat-card-subtitle class="info">
-      <mat-icon>phone</mat-icon>
+      <mat-icon>mic</mat-icon>
       <p>{{employe?.artist}}</p>
     </mat-card-subtitle>
     <mat-card-subtitle class="info">
-      <mat-icon>phone</mat-icon>
+      <mat-icon>timer</mat-icon>
       <p>{{employe?.duration}}</p>
     </mat-card-subtitle>
     <mat-card-subtitle class="info">
-      <mat-icon>phone</mat-icon>
-      <p>{{employe?.date}}</p>
+      <mat-icon>calendar_today</mat-icon>
+      <p>{{parseDate(employe?.date)}}</p>
     </mat-card-subtitle>
   </mat-card-content>
 
