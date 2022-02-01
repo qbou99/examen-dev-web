@@ -33,6 +33,8 @@ import {BadgeChefDirective} from "./partage/badgeChef/badge-chef.directive";
 import {FormulaireComponent} from "./partage/formulaire/formulaire.component";
 import {EditionComponent} from "./list-personnel/edition/edition.component";
 import {AjoutPopupComponent} from "./list-personnel/ajout-popup/ajout-popup.component";
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -53,6 +55,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         AjoutPopupComponent
     ],
   imports: [
+    MatDatepickerModule,
+    MatNativeDateModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

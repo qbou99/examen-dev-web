@@ -88,12 +88,12 @@ export class FormulaireComponent implements OnInit {
     return new FormGroup({
       id: new FormControl(''),
       title: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
-      description: new FormControl(''),
+      artist: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
       album: new FormControl('', Validators.required),
       styles: new FormControl(''),
-      artist: new FormControl('', Validators.required),
-      duration: new FormControl('', Validators.required),
-      date: new FormControl('')
+      duration: new FormControl(''),
+      description: new FormControl(''),
+      date: new FormControl(''),
     });
   }
 

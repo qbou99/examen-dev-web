@@ -4,53 +4,54 @@
   <mat-card-content>
     <form novalidate [formGroup]="form">
 
-      <p [class.errors]="form.get('nom')!.invalid && (form.get('nom')!.dirty || form.get('nom')!.touched)">
-        <mat-form-field class="name" >
-          <mat-label>Nom</mat-label>
-          <input formControlName="nom" name="nom" matInput placeholder="Ex: De LaMarre" required/>
-          <mat-error *ngIf="form.get('nom')!.dirty && form.get('nom')!.errors?.['required']"><br />Le nom est obligatoire</mat-error>
-          <mat-error *ngIf="form.get('nom')!.dirty && form.get('nom')!.errors?.['minlength']"><br />Le nom doit avoir au moins 2 caractères </mat-error>
+      <p [class.errors]="form.get('title')!.invalid && (form.get('title')!.dirty || form.get('title')!.touched)">
+        <mat-form-field>
+          <mat-label>Titre</mat-label>
+          <input formControlName="title" name="title" matInput placeholder="Ex: Highway to Hell" required/>
+          <mat-error *ngIf="form.get('title')!.dirty && form.get('title')!.errors?.['required']"><br />Le titre est obligatoire</mat-error>
+          <mat-error *ngIf="form.get('title')!.dirty && form.get('title')!.errors?.['minlength']"><br />Le titre doit avoir au moins 2 caractères </mat-error>
         </mat-form-field>
-        <mat-form-field class="name" >
-          <mat-label>Prénom</mat-label>
-          <input formControlName="prenom"  matInput placeholder="Ex: Josephine" name="prenom" required/>
-          <mat-error *ngIf="form.get('prenom')!.dirty && form.get('prenom')!.errors?.['required']"><br />Le prenom est obligatoire</mat-error>
-          <mat-error *ngIf="form.get('prenom')!.dirty && form.get('prenom')!.errors?.['minlength']"><br />Le prenom doit avoir au moins 2 caractères </mat-error>
-        </mat-form-field>
-
-
-
-      </p>
-
-      <p [class.errors]="form.get('sexe')!.invalid && (form.get('sexe')!.dirty || form.get('sexe')!.touched)">
-        <label>Sexe *</label>
-        <mat-radio-group aria-label="Sexe" class="radio-group" name="sexe" formControlName="sexe" required>
-          <mat-radio-button value="M" class="radio-button" >Homme</mat-radio-button>
-          <mat-radio-button value="F" class="radio-button" >Femme</mat-radio-button>
-          <mat-radio-button value="A" class="radio-button" >Autre</mat-radio-button>
-          <mat-error *ngIf="form.get('sexe')!.dirty && form.get('sexe')!.errors?.['required']"><br />Vous devez renseigner le sexe de la personne</mat-error>
-        </mat-radio-group>
       </p>
 
       <p>
         <mat-form-field>
-          <mat-label><mat-icon>email</mat-icon> Email</mat-label>
-          <input matInput placeholder="Ex: mimie.mathy@gmail.com" style="width:100%" name="email" formControlName="email" required />
-          <mat-error *ngIf="form.get('email')!.dirty && form.get('email')!.errors?.['required']"><br />L'email est obligatoire</mat-error>
+          <mat-label><mat-icon>mic</mat-icon> Artiste</mat-label>
+          <input matInput placeholder="Ex: AC/DC" style="width:100%" name="artist" formControlName="artist" required />
+          <mat-error *ngIf="form.get('artist')!.dirty && form.get('artist')!.errors?.['required']"><br />L'artiste est obligatoire</mat-error>
         </mat-form-field>
       </p>
 
-      <p [class.errors]="form.get('telephone')!.invalid && (form.get('telephone')!.dirty || form.get('telephone')!.touched)">
+      <p [class.errors]="form.get('album')!.invalid && (form.get('album')!.dirty || form.get('album')!.touched)">
         <mat-form-field>
-          <mat-label><mat-icon>phone</mat-icon> Téléphone</mat-label>
-          <input  matInput placeholder="Ex: 0612345678" style="width:100%" name="telephone" formControlName="telephone" />
-          <mat-error *ngIf="form.get('telephone')!.dirty && form.get('telephone')!.errors?.['pattern']"><br />Le numéro de téléphone doit comporter 10 chiffres</mat-error>
+          <mat-label><mat-icon>album</mat-icon> Album</mat-label>
+          <input  matInput placeholder="Ex: Highway to Hell" style="width:100%" name="album" formControlName="album" />
+          <mat-error *ngIf="form.get('album')!.dirty && form.get('album')!.errors?.['pattern']"><br />L'album est obligatoire</mat-error>
         </mat-form-field>
       </p>
+
+      <p>
+        <mat-form-field>
+          <mat-label><mat-icon>description</mat-icon> Description</mat-label>
+          <input matInput placeholder="Ex: Meilleure musique" style="width:100%" name="description" formControlName="description" />
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <mat-label><mat-icon>timer</mat-icon> Durée</mat-label>
+          <input matInput placeholder="Ex: 3:29 min" style="width:100%" name="duration" formControlName="duration" />
+        </mat-form-field>
+      </p>
+
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Date de sortie" name="date" formControlName="date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker ></mat-datepicker>
+      </mat-form-field>
 
       <p>
         <mat-form-field class="chip-list" >
-          <mat-label><mat-icon>work</mat-icon> Fonctions :</mat-label>
+          <mat-label><mat-icon>work</mat-icon> Styles :</mat-label>
           <mat-chip-list #chipList aria-label="Intitulés des fonctions de l'employés">
             <mat-chip *ngFor="let titre of employeModel.styles" (removed)="removeChipset(titre)" >
               {{titre}}
@@ -58,7 +59,7 @@
                 <mat-icon>cancel</mat-icon>
               </button>
             </mat-chip>
-            <input placeholder="Ex: Chirurgien..."
+            <input placeholder="Ex: Rock..."
                    [matChipInputFor]="chipList"
                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                    (matChipInputTokenEnd)="addChipset($event)">
