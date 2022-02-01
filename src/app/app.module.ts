@@ -26,7 +26,6 @@ import {CarteComponent} from "./partage/carte/carte.component";
 import {HeaderComponent} from './header/header.component';
 import {DrawerComponent} from './drawer/drawer.component';
 import {ListPersonnelComponent} from './list-personnel/list-personnel.component';
-import {ContactComponent} from './contact/contact.component';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {MatMenuModule} from "@angular/material/menu";
@@ -48,7 +47,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         HeaderComponent,
         DrawerComponent,
         ListPersonnelComponent,
-        ContactComponent,
         BadgeChefDirective,
         FormulaireComponent,
         EditionComponent,
